@@ -27,7 +27,8 @@ int main() {
 	//int op = open("result.txt", O_WRONLY | O_APPEND | O_CREAT, 0644);
 	//int op = open("result.txt", O_CREAT, 0);
 	write(op, a, sizeof(a));
-
+	
+	op = open("result.txt", O_RDONLY);
 	printf("Reading numbers to file...\n");
 	int result[10];
 	read(op, result, sizeof(result));
