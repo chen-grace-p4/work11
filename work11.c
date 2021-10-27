@@ -9,6 +9,7 @@ int rand_num() {
 	if (in == -1) {
 		printf("There is an error with open:\n");
 		printf("%s\n", strerror(errno));
+		return 0;
 	}
 	unsigned int rd = 0;
 	read(in, &rd, sizeof(&rd));
@@ -22,6 +23,7 @@ int main() {
 	for (i = 0; i < 10; i++) {
 		int r = rand_num();
 		a[i] = r;
+		if (r == 0) return 0;
 	}
 	int j;
 	for(j = 0; j < 10; j++) {
@@ -33,6 +35,7 @@ int main() {
 	if (op == -1) {
 		printf("There is an error with open:\n");
 		printf("%s\n", strerror(errno));
+		return 0;
 	}
 	unsigned int rd = 0;
 	//int op = open("result.txt", O_WRONLY | O_APPEND | O_CREAT, 0644);
@@ -43,6 +46,7 @@ int main() {
 	if (op == -1) {
 		printf("There is an error with open:\n");
 		printf("%s\n", strerror(errno));
+		return 0;
 	}
 	printf("Reading numbers to file...\n");
 	int result[10];
@@ -52,5 +56,5 @@ int main() {
 	for(j = 0; j < 10; j++) {
 		printf("\t\t random %u: %u\n", j, result[j]);
 	}
-
+	return 0;
 }
